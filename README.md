@@ -39,3 +39,8 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 | Key L | dissolves the spline and thus also the curve transition  |
 
 ### The rest of the setting options are provided by a minimal UI
+
+![](https://github.com/IMGSaibh/Shader-Examples/blob/master/images/image_1.gif)
+![](https://github.com/IMGSaibh/Shader-Examples/blob/master/images/image_2.gif)
+
+
