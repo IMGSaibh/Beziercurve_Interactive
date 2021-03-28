@@ -28,7 +28,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 ## Linking the Bezier curves - Spline generation -
 - Basically, a spline can only be created with the **last point** of the **first curve** and the **first point** of the **second curve**.
 - This becomes clear when the levels are switched on 
-- Repeated pressing of the number keys toggles the ** switching on and off the transition continuity **
+- Repeated pressing of the number keys toggles the **switching on and off the transition continuity**
 
 
 | Keyboard | Effect |
@@ -38,4 +38,4 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 | NumberKey 1 (not numeric keypad) | generates GC2 continuity |
 | NumberKey 1 | dissolves the spline and thus also the curve transition  |
 
-### Resliche Einstellungsmöglichkeiten werden durch ein minimale UI bereitgestellt
+### The rest of the setting options are provided by a minimal UI
