@@ -11,7 +11,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 - enthält 4 Dateien. Diese sollten immer gemeinsam im selben Ordner liegen
 - **Beziercurve Inspector.exe** ausführen
 ## Grundsätzlich
-- Ein **Beziercurve-Handle muss ausgewählt werden**. Es wird blau markiert
+- Ein ** Beziercurve-Handle muss ausgewählt werden **. Es wird blau markiert
 - Dadurch können im Raum Kontrollpunkte mit der **rechten Maustaste** dieser Bezierkurve hinzugefügt werden.
 - Grundsätzlich können beide Beziercurven und alle erzeugten Kontrollpunkte bewegt werden
 - Anwendung schließen mit **ESC-Taste**
