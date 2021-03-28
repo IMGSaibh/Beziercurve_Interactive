@@ -221,6 +221,7 @@ public class Beziercurve : MonoBehaviour
             GetControlPoints()[GetCurveGrade() - 1].transform.position,
             GetControlPoints()[GetCurveGrade()].transform.position,
             GetCurveGrade());
+
     }
 
     public Vector3 GetSecondDerivative_1F()
@@ -235,9 +236,9 @@ public class Beziercurve : MonoBehaviour
     public Vector3 GetSecondDerivative_0F()
     {
         return MathBezier.GetSecondDerivative_0F(
-            GetControlPoints()[GetCurveGrade() - 2].transform.position,
-            GetControlPoints()[GetCurveGrade() - 1].transform.position,
-            GetControlPoints()[GetCurveGrade()].transform.position,
+            GetControlPoints()[0].transform.position,
+            GetControlPoints()[1].transform.position,
+            GetControlPoints()[2].transform.position,
             GetCurveGrade());
     }
 
@@ -251,9 +252,16 @@ public class Beziercurve : MonoBehaviour
             ebenePoints[1] = GetCurvePoint(1f) + GetFirstDerivative_1F().normalized * level_Length;
             ebenePoints[2] = GetCurvePoint(1f) + GetSecondDerivative_1F().normalized * level_Length;
 
-            mesh_level_T1.vertices = ebenePoints;
-            mesh_level_T1.RecalculateNormals();
-            mesh_level_T1.RecalculateBounds();
+            if (ebenePoints != null)
+            {
+                mesh_level_T1.vertices = ebenePoints;
+                mesh_level_T1.RecalculateNormals();
+                mesh_level_T1.RecalculateBounds();
+            }
+            else
+            {
+                Debug.Log("GC2_Plane_T1 not intialized");
+            }
         }
     }
 
@@ -266,9 +274,16 @@ public class Beziercurve : MonoBehaviour
             ebenePoints[1] = GetCurvePoint(0f) + GetFirstDerivative_0F().normalized * level_Length;
             ebenePoints[2] = GetCurvePoint(0f) + GetSecondDerivative_0F().normalized * level_Length;
 
-            mesh_level_T0.vertices = ebenePoints;
-            mesh_level_T0.RecalculateNormals();
-            mesh_level_T0.RecalculateBounds();
+            if (ebenePoints != null)
+            {
+                mesh_level_T0.vertices = ebenePoints;
+                mesh_level_T0.RecalculateNormals();
+                mesh_level_T0.RecalculateBounds();
+            }
+            else
+            {
+                Debug.Log("GC2_Plane_T0 not intialized");
+            }
         }
     }
 
@@ -348,63 +363,58 @@ public class Beziercurve : MonoBehaviour
     //    helper.Instaniate_Tanget_Prefab(GetControlPoints()[GetCurveGrade()].position);
     //}
 
-    //private void OnDrawGizmos()
-    //{
-    //    if (GetControlPoints().Count > 2 && controlPoints != null)
-    //    {
-    //        if (gameObject.name == "Beziercurve_1")
-    //        {
-    //            // 1 Ableitung
-    //            Gizmos.color = Color.blue;
-    //            Vector3 firstDerivative_1F = GetFirstDerivative_1F();
-    //            Vector3 derivative_1F_length = GetCurvePoint(1f) + level_Length * firstDerivative_1F.normalized;
-    //            Gizmos.DrawLine(GetCurvePoint(1f), derivative_1F_length);
-    //            Handles.Label(derivative_1F_length, "First Derivative " + gameObject.name);
+    private void OnDrawGizmos()
+    {
+        if (GetControlPoints().Count > 2 && controlPoints != null)
+        {
+            if (gameObject.name == "Beziercurve_1")
+            {
+                // 1 Ableitung T = 1
+                Gizmos.color = Color.blue;
+                Vector3 derivative_1F_length = GetCurvePoint(1f) + level_Length * GetFirstDerivative_1F().normalized;
+                Gizmos.DrawLine(GetCurvePoint(1f), derivative_1F_length);
+                Handles.Label(derivative_1F_length, "1 Derivative " + gameObject.name);
 
 
-    //            //Nomrmal of plane
-    //            //Gizmos.DrawLine(GetCurvePoint(1f), GetCurvePoint(1f) + GetNormal_Of_Plane_1T() * tangentLength);
+                //Nomrmal of plane
+                //Gizmos.DrawLine(GetCurvePoint(1f), GetCurvePoint(1f) + GetNormal_Of_Plane_1T() * tangentLength);
 
 
-    //            // 2. Ableitung
-    //            Gizmos.color = Color.yellow;
-    //            Vector3 secondDerivative_1F = GetSeccondDerivative_1F();
-    //            Vector3 secondDerivative_1F_length = GetCurvePoint(1f) + secondDerivative_1F.normalized * level_Length;
-    //            Gizmos.DrawLine(GetCurvePoint(1f), secondDerivative_1F_length);
-    //            Handles.Label(secondDerivative_1F_length, "Second Derivative " + gameObject.name);
+                // 2. Ableitung T = 1 
+                Gizmos.color = Color.blue;
+                Vector3 secondDerivative_1F_length = GetCurvePoint(1f) + GetSecondDerivative_1F().normalized * level_Length;
+                Gizmos.DrawLine(GetCurvePoint(1f), secondDerivative_1F_length);
+                Handles.Label(secondDerivative_1F_length, "2 Derivative " + gameObject.name);
 
 
-    //        }
-    //        else
-    //        {
-    //            // 1 Ableitung
-    //            Gizmos.color = Color.blue;
-    //            Vector3 firstDerivative_0F = GetFirstDerivative_0F();
-    //            Vector3 derivative_0F_length = GetCurvePoint(0f) + level_Length * firstDerivative_0F.normalized;
-    //            Gizmos.DrawLine(GetCurvePoint(0f), derivative_0F_length);
-    //            Handles.Label(derivative_0F_length, "First Derivative");
+            }
+            else
+            {
+                // 1 Ableitung T = 0
+                Gizmos.color = Color.yellow;
+                Vector3 derivative_0F_length = GetCurvePoint(0f) + level_Length * GetFirstDerivative_0F().normalized;
+                Gizmos.DrawLine(GetCurvePoint(0f), derivative_0F_length);
+                Handles.Label(derivative_0F_length, "1 Derivative");
 
-    //            // 2. Ableitung
-    //            Gizmos.color = Color.yellow;
-    //            Vector3 secondDerivative_0F = GetSeccondDerivative_0F();
-    //            Vector3 secondDerivative_0F_length = GetCurvePoint(0f) + secondDerivative_0F.normalized * level_Length;
-    //            Gizmos.DrawLine(GetCurvePoint(0f), secondDerivative_0F_length);
-    //            Handles.Label(secondDerivative_0F_length, "Second Derivative");
-    //        }
+                // 2. Ableitung T = 0
+                Vector3 secondDerivative_0F_length = GetCurvePoint(0f) + GetSecondDerivative_0F().normalized * level_Length;
+                Gizmos.DrawLine(GetCurvePoint(0f), secondDerivative_0F_length);
+                Handles.Label(secondDerivative_0F_length, "2 Derivative");
+            }
 
 
 
-    //        //Gizmos.color = Color.red;
-    //        //Vector3 p2_dir = GetControlPoints()[1].transform.position - GetControlPoints()[2].transform.position;
-    //        //Vector3 parellelPoint = Vector3.Project(p2_dir, derivative1_length);
-    //        //p2_dir -= parellelPoint;
-    //        ////Vector3 parellelPoint = (GetControlPoints()[2].transform.position - GetControlPoints()[1].transform.position) +  GetControlPoints()[2].transform.position;
-    //        //Gizmos.DrawLine(GetControlPoints()[2].transform.position, p2_dir);
-    //        //Handles.Label(parellelPoint, "parallel point");
+            //Gizmos.color = Color.red;
+            //Vector3 p2_dir = GetControlPoints()[1].transform.position - GetControlPoints()[2].transform.position;
+            //Vector3 parellelPoint = Vector3.Project(p2_dir, derivative1_length);
+            //p2_dir -= parellelPoint;
+            ////Vector3 parellelPoint = (GetControlPoints()[2].transform.position - GetControlPoints()[1].transform.position) +  GetControlPoints()[2].transform.position;
+            //Gizmos.DrawLine(GetControlPoints()[2].transform.position, p2_dir);
+            //Handles.Label(parellelPoint, "parallel point");
 
 
-    //    }
-    //}
+        }
+    }
 
 
 }

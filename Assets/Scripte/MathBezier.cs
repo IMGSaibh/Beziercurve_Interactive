@@ -76,11 +76,10 @@ public static class MathBezier
         return curveGrade * (curveGrade - 1) * (pn - (2 * pn_minus_1) + pn_minus_2);
     }
 
-    public static Vector3 GetSecondDerivative_0F(Vector3 p2, Vector3 p1, Vector3 p0, float curveGrade)
+    public static Vector3 GetSecondDerivative_0F(Vector3 p0, Vector3 p1, Vector3 p2, float curveGrade)
     {
         return curveGrade * (curveGrade - 1) * (p2 - (2 * p1) + p0);
     }
-
 
     public static float Get_Pow_Distance_SharedPoint_to_Handle(Vector3 sharedpoint, Vector3 handle) 
     {

@@ -74,6 +74,8 @@ public class Beziercurve_Controller : MonoBehaviour
      
         }
 
+        // initialize Beziercurves for later use purposes
+
         curves[0].Initialize_Plane_GC2_T1(
          levelCorners[0],
          levelCorners[1],
@@ -150,7 +152,7 @@ public class Beziercurve_Controller : MonoBehaviour
         }
 
         //tangents are kolinear
-        //if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        //if (Input.GetKeyDown(KeyCode.Alpha3)) 
         //{
         //    toggleGC0 = toggleGC0 ? false : true;
         //}
