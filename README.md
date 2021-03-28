@@ -6,16 +6,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 ### 2. continuity of GC0, GC1 and GC2 is also inspectable with limited degrees of freedom for each continuity
 ### 3. restrictions of continuity will show you the attributes of tracks contructed with beziercurves
 - - -
-## Programm starten
-- Zip entpacken
-- enthält 4 Dateien. Diese sollten immer gemeinsam im selben Ordner liegen
-- **Beziercurve Inspector.exe** ausführen
-## Grundsätzlich
-- Ein ** Beziercurve-Handle muss ausgewählt werden **. Es wird blau markiert
-- Dadurch können im Raum Kontrollpunkte mit der **rechten Maustaste** dieser Bezierkurve hinzugefügt werden.
-- Grundsätzlich können beide Beziercurven und alle erzeugten Kontrollpunkte bewegt werden
-- Anwendung schließen mit **ESC-Taste**
-
+## Control
 
 ## With the Bezier curve handle selected
 | Keyboard | Effect |
@@ -35,7 +26,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 | Shift + LMB | Look around |
 
 ## Linking the Bezier curves - Spline generation -
-- Basically, a spline can only be created with the ** last point ** of the ** first curve ** and the ** first point ** of the ** second curve **.
+- Basically, a spline can only be created with the **last point** of the **first curve** and the **first point** of the **second curve**.
 - This becomes clear when the levels are switched on 
 - Repeated pressing of the number keys toggles the ** switching on and off the transition continuity **
 
