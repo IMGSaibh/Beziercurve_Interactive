@@ -40,7 +40,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 
 ### The rest of the setting options are provided by a minimal UI
 
-![](https://github.com/IMGSaibh/Shader-Examples/blob/master/images/image_1.gif)
-![](https://github.com/IMGSaibh/Shader-Examples/blob/master/images/image_2.gif)
+![](https://github.com/IMGSaibh/Beziercurve_Interactive/blob/master/images/image_1.gif)
+![](https://github.com/IMGSaibh/Beziercurve_Interactive/blob/master/images/image_2.gif)
 
 
