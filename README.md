@@ -35,7 +35,7 @@ This Tool have just only one spline with two curvesegments each parameterizable 
 | :------- | :------: |
 | Ctrl + LMB + Move point Pn of the first curve into P0 of the second curve | generates GC0 continuity |
 | NumberKey 1 (not numeric keypad) | generates GC1 continuity |
-| NumberKey 1 (not numeric keypad) | generates GC2 continuity |
+| NumberKey 2 (not numeric keypad) | generates GC2 continuity |
 | Key L | dissolves the spline and thus also the curve transition  |
 
 ### The rest of the setting options are provided by a minimal UI
